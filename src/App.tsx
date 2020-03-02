@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { hot, setConfig } from 'react-hot-loader';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { Provider } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Students } from './scenes/students';
+
+import normalizeStyle from './styles/normalize';
+import globalStyle from './styles/main';
+import fontsStyle from './styles/fonts';
+import theme from './styles/theme';
+
+const GlobalStyle = createGlobalStyle`
+  ${normalizeStyle}
+  ${globalStyle}
+  ${fontsStyle}
+`;
+
+const MainRouter = () => (
+    <BrowserRouter>
+        <Switch>
+            <Route exact path="/" component={Students} />
+        </Switch>
+    </BrowserRouter>
+);
+
+function App({ store }) {
+    return (
+        <>
+            <ThemeProvider theme={theme}>
+                <Provider store={store}>
+                    <MainRouter />
+                </Provider>
+            </ThemeProvider>
+            <GlobalStyle />
+        </>
+    );
 }
 
-export default App;
+setConfig({ logLevel: 'debug' });
+
+export default hot(module)(App);

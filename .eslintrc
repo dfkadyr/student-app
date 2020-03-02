@@ -1,0 +1,88 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/strict",
+        "eslint-config-axept",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
+        "prettier/react"
+    ],
+    "plugins": ["prettier", "@typescript-eslint", "react", "react-hooks"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "./webpack.common.js"
+            },
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        },
+        "react": {
+            "version": "detect"
+        }
+    },
+    "root": true,
+    "rules": {
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-explicit-any": [0],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "prettier/prettier": ["error"],
+        "response/jsx-filename-extension": [0],
+        "import/extensions": [
+            "warn",
+            "always",
+            {
+                "js": "never",
+                "jsx": "never",
+                "tsx": "never",
+                "ts": "never"
+            }
+        ],
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".jsx", ".tsx"]
+        }],
+        "import/no-extraneous-dependencies": [0],
+        "import/prefer-default-export": 0,
+        "import/no-cycle": [2, {
+            "maxDepth": 1
+        }],
+        "react/jsx-indent-props": [2, 4],
+        "@typescript-eslint/interface-name-prefix": [1, "always"],
+        "react/jsx-props-no-spreading": 0,
+        "react/prop-types": 0,
+        "no-console": 0,
+        "no-nested-ternary": 0,
+        "no-unneeded-ternary": "error",
+        "import/no-unresolved": [2, {
+            "caseSensitive": false
+        }],
+        "import/exports-last": 0,
+        "jsx-a11y/anchor-is-valid": ["error", {
+            "components": ["Link"],
+            "specialLink": ["to"]
+        }]
+    },
+    "globals": {
+        "window": true,
+        "document": true,
+        "localStorage": true,
+        "FormData": true,
+        "FileReader": true,
+        "Blob": true,
+        "navigator": true
+    }
+}
