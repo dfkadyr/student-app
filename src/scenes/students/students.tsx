@@ -43,8 +43,6 @@ export const Students: React.FunctionComponent<{}> = () => {
         (key: StudentInfoTypes, index: number) => event => {
             const value = valuePrepare(key, event);
             dispatch(editStudent(index, key, value));
-
-            console.log('value', value);
         },
         [dispatch],
     );
