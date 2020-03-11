@@ -1,5 +1,17 @@
 # Students list
 
+Students list is the base dfkadyr ReactJS application template with Typescript.
+
+## Specifications
+
+-   `React 16.13`
+-   `Redux`
+-   `React Router 5`
+-   `Styled Components`
+-   `Webpack Dev Server`
+-   `Typescript 3`
+-   `ES2018`
+
 In the project directory, you can run:
 
 ### `yarn start`
@@ -20,3 +32,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
